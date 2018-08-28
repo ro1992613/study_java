@@ -1,0 +1,33 @@
+package com.blog.service;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Component;
+@Component
+public class ImgService {
+
+	@Cacheable(value="picCache")
+	public List<String> getImgList(int param) throws IOException{
+		List<String> list=new ArrayList<>();
+		Document doc = Jsoup.connect("http://jandan.net/pic").get();
+		Element index_el = doc.select("div.cp-pagenavi > a").first();
+		int page=Integer.parseInt(index_el.text());
+		page=page-param;
+		doc=null;
+		String url="http://jandan.net/pic/page-"+page+"#comments";
+		System.out.println(url);
+		doc = Jsoup.connect(url).get();
+		Elements pic_els=doc.select("a.view_img_link");
+		for(Element e:pic_els){
+			list.add(e.attr("href"));
+		}
+		return list;
+	}
+}

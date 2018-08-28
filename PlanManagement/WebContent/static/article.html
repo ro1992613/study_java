@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="/pic/icon.jpg">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/assets/js/jquery.min.js"></script>
+</head>
+
+<body id="blog-article-sidebar">
+    <div id="app">
+        <!-- nav start -->
+        <nav class="am-g am-g-fixed blog-fixed blog-nav">
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" ><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+            <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li><a href="/index.html">首页</a></li>
+                    <li><a href="/image.html">煎蛋图</a></li>
+                    <li v-for="vue_article_type in vue_article_type_list" ><a v-bind:href="'/index.html?article_type='+vue_article_type.type">{{vue_article_type.type}}</a></li>
+                </ul>
+                <div class="am-topbar-form am-topbar-right am-form-inline">
+                    <div class="am-form-group">
+                        <input type="text" class="am-form-field am-input-sm" placeholder="搜索" v-model="search_key">
+                        <a class="am-btn am-btn-primary am-btn-sm" href="javascript:;" v-on:click="searchKey">搜索</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- nav end -->
+        <hr>
+        <!-- content srart -->
+        <div class="am-g am-g-fixed blog-fixed blog-content">
+            <div class="am-u-md-8 am-u-sm-12">
+                <article class="am-article blog-article-p">
+                    <div class="am-article-hd">
+                        <h1 class="am-article-title blog-text-center">{{article_title}}</h1>
+                        <p class="am-article-meta blog-text-center">
+                            <span><a href="javascript:void(0);" class="blog-color" v-on:click="searchType(article_type)">{{article_type}} &nbsp;</a></span>-
+                            <span><a href="#">@{{article_author_name}} &nbsp;</a></span>-
+                            <span><a href="#">{{article_createtime}}</a></span>
+                        </p>
+                    </div>
+                    <div class="am-article-bd" id="article_content">
+                    </div>
+                </article>
+
+                <div class="am-g blog-article-widget blog-article-margin">
+                    <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+                        <span class="am-icon-tags"> &nbsp;</span><a href="#">标签</a> , <a href="#">TAG</a> , <a href="#">啦啦</a>
+                        <hr>
+                        <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+                        <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
+                        <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="am-g blog-author blog-article-margin" v-for="vue_reply in vue_reply_list">
+                    <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                        <img src="/pic/icon.jpg" alt="" class="blog-author-img am-circle">
+                    </div>
+                    <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+                        <span class="blog-color">{{vue_reply.reply_name}}</span><span>于{{vue_reply.reply_time}}回复:</span>
+                        <p>{{vue_reply.reply_content}}</p>
+                    </div>
+                </div>
+                <hr>
+                <ul class="tpl-table-black-operation am-pagination tpl-pagination" v-if="vue_reply_list.length>0">
+                    <li><a href="javascript:;" v-on:click="show_reply_first">«</a></li>
+                    <li><a href="javascript:;" v-on:click="show_reply_last">上一页</a></li>
+                    <li>当前是第{{page_index}}页，共{{page_count}}页</li>
+                    <li><input type="text" style="width: 50px;" id="input_page_no" class="am-form-field"
+                               v-on:keyup.enter="show_reply_skip"></li>
+                    <li><a href="javascript:;" v-on:click="show_reply_skip">跳转</a></li>
+                    <li><a href="javascript:;" v-on:click="show_reply_next">下一页</a></li>
+                    <li><a href="javascript:;" v-on:click="show_reply_final">»</a></li>
+                </ul>
+
+                <hr>
+
+                <div class="am-form am-g">
+                    <h3 class="blog-comment">评论</h3>
+                    <fieldset>
+                        <div class="am-form-group am-u-sm-4 blog-clear-left">
+                            <input type="text" class="" v-if="vue_user.user_id" v-model="vue_user.user_alias" readonly>
+                            <input type="text" class="" placeholder="名字" v-model="reply_user_name" v-else>
+                        </div>
+
+                        <div class="am-form-group">
+                            <textarea class="" rows="5" placeholder="评论" v-model="vue_reply_content"></textarea>
+                        </div>
+
+                        <p><button class="am-btn am-btn-default" onclick="save_reply()">发表评论</button></p>
+                    </fieldset>
+                </div>
+
+                <hr>
+            </div>
+
+            <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+                <div class="blog-sidebar-widget blog-bor">
+                    <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+                    <img src="/pic/f10.jpg" alt="about me" class="blog-entry-img">
+                    <p>妹纸</p>
+                    <p>
+                        我是妹子UI，中国首个开源 HTML5 跨屏前端框架
+                    </p>
+                    <p>我不想成为一个庸俗的人。十年百年后，当我们死去，质疑我们的人同样死去，后人看到的是裹足不前、原地打转的你，还是一直奔跑、走到远方的我？</p>
+                </div>
+                <div class="blog-sidebar-widget blog-bor">
+                    <h2 class="blog-text-center blog-title"><span>最热文章</span></h2>
+                    <ul class="am-list">
+                        <li v-for="vue_hottest_article in vue_hottest_article_list">
+                            <a class="am-text-left" v-bind:href="'/article.html?article_id='+vue_hottest_article.article_id">{{vue_hottest_article.article_title}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+                    <h2 class="blog-title"><span>最新评论</span></h2>
+                    <div class="am-u-sm-12" style="padding-bottom: 4px;" v-for="vue_latest_reply in vue_latest_reply_list">
+                        <span class="blog-color am-fl">{{vue_latest_reply.reply_name}}</span><span class="am-fl">的回复:</span>
+                        <br>
+                        <a class="blog-tag am-text-left" v-bind:href="'/article.html?article_id='+vue_latest_reply.reply_text_id">{{vue_latest_reply.reply_content}}</a>
+                    </div>
+                </div>
+                <div class="blog-sidebar-widget blog-bor">
+                    <h2 class="blog-title"><span>囧图</span></h2>
+                    <div v-for="vue_image in vue_image_list">
+                        <img style="margin-bottom: 3px;" v-bind:src="vue_image" alt="about me" class="blog-entry-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content end -->
+
+
+        <footer class="blog-footer">
+            <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
+                <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+                    <h3>模板简介</h3>
+                    <p class="am-text-sm">这是一个使用amazeUI做的简单的前端模板。<br> 博客/ 资讯类 前端模板 <br> 支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br><br>
+                        Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 Amaze UI 及其副本。</p>
+                </div>
+                <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+                    <h3>社交账号</h3>
+                    <p>
+                        <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+                        <a href=""><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+                        <a href=""><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+                        <a href=""><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
+                        <a href=""><span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span></a>
+                    </p>
+                    <h3>Credits</h3>
+                    <p>我们追求卓越，然时间、经验、能力有限。Amaze UI 有很多不足的地方，希望大家包容、不吝赐教，给我们提意见、建议。感谢你们！</p>
+                </div>
+                <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+                    <h1>我们站在巨人的肩膀上</h1>
+                    <h3>Heroes</h3>
+                    <p>
+                    <ul>
+                        <li>jQuery</li>
+                        <li>Zepto.js</li>
+                        <li>Seajs</li>
+                        <li>LESS</li>
+                        <li>...</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed under MIT license. Made with love By LWXYFER</div>
+        </footer>
+    </div>
+    <script src="/js/router.js"></script>
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="/source/vue.js"></script>
+<script src="/source/moment.js"></script>
+<script src="/js/article.js"></script>
+</body>
+</html>
