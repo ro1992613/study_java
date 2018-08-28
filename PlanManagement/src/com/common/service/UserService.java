@@ -1,0 +1,60 @@
+package com.common.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Component;
+
+import com.common.dao.UserDao;
+
+@Component
+public class UserService {
+	@Autowired
+	UserDao userDao;
+	public Map<String, Object> getUserInfo(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.getUserInfo(user_id);
+	}
+
+	public boolean addUser(String user_id, String user_name, String user_pass, String user_alias, String remark) {
+		// TODO Auto-generated method stub
+		return userDao.addUser(user_id,user_name,user_pass,user_alias,remark);
+	}
+
+	public boolean deleteUser(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.deleteUser(user_id);
+	}
+
+	public boolean updateUser(String user_id, String user_name, String user_pass, String user_alias, String remark) {
+		// TODO Auto-generated method stub
+		return userDao.updateUser(user_id,user_name,user_pass,user_alias,remark);
+	}
+
+	public List<Map<String, Object>> getAllUsers(int i_page_no, int i_page_size) {
+		// TODO Auto-generated method stub
+		return userDao.getAllUsers(i_page_no,i_page_size);
+	}
+
+	public int getAllUsersCount() {
+		// TODO Auto-generated method stub
+		return userDao.getAllUsersCount();
+	}
+
+	public List<String> getRolesByUserId(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.getRolesByUserId(user_id);
+	}
+
+	public boolean updateUserRoles(String user_id, String[] role_ids) {
+		// TODO Auto-generated method stub
+		return userDao.updateUserRoles(user_id,role_ids);
+	}
+
+	public boolean isUserExisted(String user_name) {
+		// TODO Auto-generated method stub
+		return userDao.isUserExisted(user_name);
+	}
+}

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="/assets/js/echarts.min.js"></script>
+    <link rel="alternate icon" type="image/png" href="/pic/icon.jpg">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/js/login_utils.js"></script>
+
+</head>
+<body data-type="index">
+<script src="/assets/js/theme.js"></script>
+<div class="am-g tpl-g"   id="app">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:;"><img src="/assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                    <span>
+
+                </span>
+            </div>
+            <!-- 搜索 -->
+            <div class="am-fl tpl-header-search">
+                <form class="tpl-header-search-form" action="javascript:;">
+                    <button class="tpl-header-search-btn am-icon-search"></button>
+                    <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                </form>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                    </li>
+
+                    <!-- 新邮件 -->
+                    <li class="am-dropdown tpl-dropdown" data-am-dropdown>
+                        <a href="javascript:;" class="am-dropdown-toggle tpl-dropdown-toggle" data-am-dropdown-toggle>
+                            <i class="am-icon-envelope"></i>
+                            <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
+                        </a>
+                        <!-- 弹出列表 -->
+                        <ul class="am-dropdown-content tpl-dropdown-content">
+                            <li class="tpl-dropdown-menu-messages">
+                                <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                    <div class="menu-messages-ico">
+                                        <img src="/assets/img/user04.png" alt="">
+                                    </div>
+                                    <div class="menu-messages-time">
+                                        3小时前
+                                    </div>
+                                    <div class="menu-messages-content">
+                                        <div class="menu-messages-content-title">
+                                            <i class="am-icon-circle-o am-text-success"></i>
+                                            <span>夕风色</span>
+                                        </div>
+                                        <div class="am-text-truncate"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI
+                                            的成长，则离不开用户的支持。
+                                        </div>
+                                        <div class="menu-messages-content-time">2016-09-21 下午 16:40</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="tpl-dropdown-menu-messages">
+                                <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                    <div class="menu-messages-ico">
+                                        <img src="/assets/img/user02.png" alt="">
+                                    </div>
+                                    <div class="menu-messages-time">
+                                        5天前
+                                    </div>
+                                    <div class="menu-messages-content">
+                                        <div class="menu-messages-content-title">
+                                            <i class="am-icon-circle-o am-text-warning"></i>
+                                            <span>禁言小张</span>
+                                        </div>
+                                        <div class="am-text-truncate"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。</div>
+                                        <div class="menu-messages-content-time">2016-09-16 上午 09:23</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="tpl-dropdown-menu-messages">
+                                <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                    <i class="am-icon-circle-o"></i> 进入列表…
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- 新提示 -->
+                    <li class="am-dropdown" data-am-dropdown>
+                        <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
+                            <i class="am-icon-bell"></i>
+                            <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
+                        </a>
+
+                        <!-- 弹出列表 -->
+                        <ul class="am-dropdown-content tpl-dropdown-content">
+                            <li class="tpl-dropdown-menu-notifications">
+                                <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                    <div class="tpl-dropdown-menu-notifications-title">
+                                        <i class="am-icon-line-chart"></i>
+                                        <span> 有6笔新的销售订单</span>
+                                    </div>
+                                    <div class="tpl-dropdown-menu-notifications-time">
+                                        12分钟前
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="tpl-dropdown-menu-notifications">
+                                <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                    <div class="tpl-dropdown-menu-notifications-title">
+                                        <i class="am-icon-star"></i>
+                                        <span> 有3个来自人事部的消息</span>
+                                    </div>
+                                    <div class="tpl-dropdown-menu-notifications-time">
+                                        30分钟前
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="tpl-dropdown-menu-notifications">
+                                <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                    <div class="tpl-dropdown-menu-notifications-title">
+                                        <i class="am-icon-folder-o"></i>
+                                        <span> 上午开会记录存档</span>
+                                    </div>
+                                    <div class="tpl-dropdown-menu-notifications-time">
+                                        1天前
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li class="tpl-dropdown-menu-notifications">
+                                <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                    <i class="am-icon-bell"></i> 进入列表…
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- 退出 -->
+                    <li class="am-text-sm">
+                        <a href="javascript:;" onclick="logout()">
+                            <span class="am-icon-sign-out"></span> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- 风格切换 -->
+    <div class="tpl-skiner">
+        <div class="tpl-skiner-toggle am-icon-cog">
+        </div>
+        <div class="tpl-skiner-content">
+            <div class="tpl-skiner-content-title">
+                选择主题
+            </div>
+            <div class="tpl-skiner-content-bar">
+                <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                <span class="skiner-color skiner-black" data-color="theme-black"></span>
+            </div>
+        </div>
+    </div>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar" >
+        <!-- 用户信息 -->
+        <div class="tpl-sidebar-user-panel">
+            <div class="tpl-user-panel-slide-toggleable">
+                <div class="tpl-user-panel-profile-picture">
+                    <img src="/assets/img/user04.png" alt="">
+                </div>
+                <span class="user-panel-logged-in-text">
+              <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+              禁言小张
+          </span>
+                <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+            </div>
+        </div>
+
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 菜单</span></li>
+            <li class="sidebar-nav-link">
+                <a href="/page/index.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i> 用户中心
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;">
+                    <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 计划
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub"  style="display: block;">
+                    <li class="sidebar-nav-link">
+                        <a href="javascript:;" onclick="getAllTasks()"  class="active">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-bar-chart sidebar-nav-link-logo"></i>
+                            所有
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link"  v-for="vue_list in vue_list_list">
+                        <a href="javascript:;"  v-on:click="show_tasks(vue_list.list_id)">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-bar-chart sidebar-nav-link-logo"></i>
+                            {{vue_list.list_name}}
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="javascript:;" onclick="show_add_list_modal()">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-plus sidebar-nav-link-logo"></i>
+                            添加清单
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-coffee sidebar-nav-link-logo"></i>博客
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="/page/blog/blogManage.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-paint-brush sidebar-nav-link-logo"></i>博客管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="/page/blog/replyManage.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-tags sidebar-nav-link-logo"></i>回复管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-balance-scale sidebar-nav-link-logo"></i> 权限管理
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="/page/rightManage/userManage.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-user sidebar-nav-link-logo"></i>用户管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="/page/rightManage/roleManage.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-odnoklassniki sidebar-nav-link-logo"></i>角色管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="/page/rightManage/permissionManage.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span>
+                            <i class="am-icon-suitcase sidebar-nav-link-logo"></i>权限管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+                    <div class="widget am-cf"  style="min-height: 880px;">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">{{vue_list_name}}</div>
+                            <div class="widget-function am-fr">
+                                <div class="am-dropdown" data-am-dropdown>
+                                    <a href="javascript:;" class="am-icon-cog am-dropdown-toggle" data-am-dropdown-toggle></a>
+                                    <ul class="am-dropdown-content">
+                                        <li v-if="!vue_list_id"><a href="javascript:;">没有选中清单</a></li>
+                                        <li v-if="vue_list_id"><a href="javascript:;" v-on:click="delete_list(vue_list_id)" ><i></i>删除</a></li>
+                                        <li v-if="vue_list_id"><a href="javascript:;" onclick="show_update_list_modal()">编辑</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-head am-cf">
+                            <div class="am-g">
+                                <div class="am-u-lg-9">
+                                    <div class="am-input-group" style="width: 100%">
+                                        <input id="add_task_name" type="text" class="am-form-field" placeholder="添加任务..." v-on:keyup.enter="add_task">
+                                    </div>
+                                </div>
+                                <div class="am-u-lg-3">
+                                    <div class="am-input-group" style="width: 100%">
+                                        <input  id="add_task_date" type="text" class="am-form-field" placeholder="日期">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">
+                                <div class="am-dropdown" data-am-dropdown>
+                                    <a href="javascript:;" class="am-dropdown-toggle" style="color: #838FA1;" data-am-dropdown-toggle>
+                                        <i class="am-icon-ellipsis-v "></i>
+                                        分类
+                                    </a>
+                                    <ul class="am-dropdown-content">
+                                        <li>
+                                            <a href="javascript:;" onclick="change_task_state(undefined)" style="color: #838FA1;">
+                                                <i class="am-icon-circle"></i> 全部
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" onclick="change_task_state(0)" style="color: #838FA1;">
+                                                <i class="am-icon-spinner"></i>未完成
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" onclick="change_task_state(1)" style="color: #838FA1;">
+                                                <i class="am-icon-check"></i> 已完成
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-body  widget-body-lg am-fr">
+                            <table width="100%" class="am-table am-table-compact tpl-table-black am-table-hover">
+                                <tbody>
+                                <tr class="gradeX"  v-for="vue_task in vue_task_list">
+                                    <td v-if="vue_task.task_state==1" style="width: 40px;"><span class="am-badge am-badge-danger am-radius am-fl">已完成</span></td>
+                                    <td v-else style="width: 40px;"><span class="am-badge am-badge-secondary am-radius am-fl">未完成</span></td>
+                                    <td v-on:click="show_content(vue_task.task_id)">
+                                        <span class="am-fl">{{vue_task.task_name}}</span>
+                                        <span class="am-fr">{{vue_task.task_createtime}}</span>
+                                    </td>
+                                    <td style="width: 10px;">
+                                        <div class="am-dropdown">
+                                            <a href="javascript:;" class="am-icon-cog am-dropdown-toggle" style="color: #838FA1;"></a>
+                                            <ul class="am-dropdown-content">
+                                                <li>
+                                                    <a href="javascript:;"  v-on:click="show_content(vue_task.task_id)" style="color: #838FA1;">
+                                                        <i class="am-icon-camera"></i> 查看
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;"  v-on:click="change_task_state(vue_task.task_id)" style="color: #838FA1;">
+                                                        <i class="am-icon-toggle-on"></i> 切换
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;"  v-on:click="show_update_content(vue_task.task_id)" style="color: #838FA1;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del" v-on:click="delete_task(vue_task.task_id)" style="color: #838FA1;">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- more data -->
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="am-u-lg-12 am-cf">
+
+                            <div class="am-fl">
+                                <ul class="tpl-table-black-operation am-pagination tpl-pagination">
+                                    <li><a href="javascript:;" v-on:click="show_tasks_first">«</a></li>
+                                    <li><a href="javascript:;" v-on:click="show_tasks_last">上一页</a></li>
+                                    <li>当前是第{{page_index}}页，共{{page_count}}页</li>
+                                    <li><input type="text" style="width: 50px;" id="input_page_no" class="am-form-field" v-on:keyup.enter="show_tasks_skip"></li>
+                                    <li><a href="javascript:;" v-on:click="show_tasks_skip">跳转</a></li>
+                                    <li><a href="javascript:;" v-on:click="show_tasks_next">下一页</a></li>
+                                    <li><a href="javascript:;" v-on:click="show_tasks_final">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+
+                    <div class="widget am-cf" style="min-height: 880px;" v-if="task.task_id">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">{{task.task_name}}</div>
+                        </div>
+                        <div class="widget-body  widget-body-lg am-fr">
+                            <div class="am-scrollable-horizontal" style="height: 100%;">
+                                <div class="am-form-group">
+                                    <textarea style="height: 100%;width: 100%;border: 0px;height: 700px" class="tpl-header-search-box" v-model="task.content">{{task.content}}</textarea>
+                                    <input type="hidden" value="task.task_id">
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="am-btn am-btn-primary am-btn-block" onclick="update_content()"><i class="am-icon-check"></i> 保存</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="widget am-cf" style="min-height: 880px;" v-else>
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl" >点击任务查看详情</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="edit_content_modal">
+    <div class="am-modal-dialog" style="width: 450px;">
+        <div class="am-panel am-panel-primary" style="margin-bottom: 0px;">
+            <div class="am-panel-hd">
+                编辑内容
+                <a href="javascript: void(0)" class="am-close am-close-spin am-fr" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-panel-bd">
+                <div class="am-form-group">
+                    <input size="50" type="text" class="" placeholder="标题" id="edit_content_modal_title" readonly>
+                </div>
+                <div class="am-form-group">
+                    <input size="50" type="hidden" class="" id="edit_content_modal_id">
+                </div>
+                <div class="am-form-group">
+                    <textarea class="" rows="10" cols="51" placeholder="描述" id="edit_content_modal_content"></textarea>
+                </div>
+                <div class="am-form-group">
+                    <button type="button" style="width: 380px;" class="am-btn am-btn-primary" onclick="update_task()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="add_list_modal">
+    <div class="am-modal-dialog" style="width: 400px;">
+        <div class="am-panel am-panel-primary" style="margin-bottom: 0px;">
+            <div class="am-panel-hd">
+                添加清单
+                <a href="javascript: void(0)" class="am-close am-close-spin am-fr" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-panel-bd" >
+                <div class="am-form-group">
+                    <input size="40" type="text" placeholder="填入清单名称...." id="add_list_name">
+                </div>
+                <div class="am-form-group">
+                    <button type="button" style="width: 315px;" class="am-btn am-btn-sm am-btn-primary" onclick="add_list()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="update_list_modal">
+    <div class="am-modal-dialog" style="width: 400px;">
+        <div class="am-panel am-panel-primary" style="margin-bottom: 0px;">
+            <div class="am-panel-hd">
+                编辑清单
+                <a href="javascript: void(0)" class="am-close am-close-spin am-fr" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-panel-bd" >
+                <div class="am-form-group">
+                    <input size="40" type="text" placeholder="填入清单名称...." id="update_list_name">
+                    <input size="40" type="hidden" id="update_list_id">
+                </div>
+                <div class="am-form-group">
+                    <textarea class="" rows="5" cols="41" placeholder="备注" id="update_list_remark"></textarea>
+                </div>
+                <div class="am-form-group">
+                    <button type="button" style="width: 315px;" class="am-btn am-btn-sm am-btn-primary" onclick="update_list()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/router.js"></script>
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="/assets/js/amazeui.datatables.min.js"></script>
+<script src="/assets/js/dataTables.responsive.min.js"></script>
+<script src="/source/laydate/laydate.js"></script>
+<script src="/source/vue.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/js/task/task.js"></script>
+</body>
+</html>

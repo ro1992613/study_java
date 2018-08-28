@@ -1,0 +1,42 @@
+package com.blog.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.blog.dao.ReplyDAO;
+@Component
+public class ReplyService {
+	
+	@Autowired
+	ReplyDAO replyDAO;
+	
+	public boolean insertReply(Map<String, Object> reply){
+		return replyDAO.insertReply(reply);
+	}
+	
+	public List<Map<String, Object>> getReplyList(String article_id, int page_index, int page_size) {
+		// TODO Auto-generated method stub
+		return replyDAO.getReplyList(article_id,page_index,page_size);
+	}
+	public int getReplyCount(String article_id) {
+		// TODO Auto-generated method stub
+		return replyDAO.getReplyCount(article_id);
+	}
+
+	public boolean deleteReply(String reply_id) {
+		return replyDAO.deleteReply(reply_id);
+	}
+
+	public boolean deleteReplyList(String article_id) {
+		// TODO Auto-generated method stub
+		return replyDAO.deleteReplyList(article_id);
+	}
+
+	public List<Map<String, Object>> getLatestReplyList() {
+		// TODO Auto-generated method stub
+		return replyDAO.getLatestReplyList();
+	}
+}
