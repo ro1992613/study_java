@@ -1,0 +1,6 @@
+[0524/175150.765:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::(anonymous namespace)::ReadStruct(HANDLE, crashpad::WinVMAddress, T *) [T = crashpad::process_types::PEB<crashpad::process_types::internal::Traits32>]: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0524/175150.812:ERROR:process_info.cc(545)] ReadProcessData failed
+[0524/175150.812:ERROR:process_reader_win.cc(242)] ReadMemory at 0x6561d060 of 12 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0524/175150.812:WARNING:process_snapshot_win.cc(69)] ReadMemory ExceptionInformation failed
+[0524/175150.812:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0524/175150.812:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: 已尝试访问正在退出的过程。 (0xc000010a)
