@@ -1,4 +1,4 @@
-package com.silence.common;
+package com.ssm.common;
 
 import java.io.IOException;
 

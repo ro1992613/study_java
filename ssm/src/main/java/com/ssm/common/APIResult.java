@@ -1,14 +1,14 @@
-package com.silence.common;
+package com.ssm.common;
 
 /**
- * @description 封装API接口数据
+ * @description 灏佽API鎺ュ彛鏁版嵁
  * @version V1.0
  */
 public class APIResult<T> {
-	private int code;//状态码
-	private String msg;//消息,1-成功
-	private T data;//数据
-	private String token;//安全令牌
+	private int code;//鐘舵�佺爜
+	private String msg;//娑堟伅,1-鎴愬姛
+	private T data;//鏁版嵁
+	private String token;//瀹夊叏浠ょ墝
 	
 	public int getCode() {
 		return code;

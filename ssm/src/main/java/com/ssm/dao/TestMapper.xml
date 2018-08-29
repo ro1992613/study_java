@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ssm.dao.TestDAO">
+    <select id="test"  resultType="Integer">
+            SELECT count(*) from reply WHERE reply_text_id = #{reply_text_id} AND reply_ip= #{reply_ip} 
+    </select>
+</mapper> 

@@ -1,4 +1,4 @@
-package com.silence.sample.dao;
+package com.ssm.sample.dao;
 
 import java.util.List;
 import java.util.Map;

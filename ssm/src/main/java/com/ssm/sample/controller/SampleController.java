@@ -1,4 +1,4 @@
-package com.silence.sample.controller;
+package com.ssm.sample.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.silence.common.APIResult;
-import com.silence.sample.service.SampleService;
+import com.ssm.common.APIResult;
+import com.ssm.sample.service.SampleService;
 
 @Controller
 @RequestMapping("/sample")
