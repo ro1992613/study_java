@@ -33,5 +33,10 @@ public class SampleController {
 		}
 		return result;
 	}
+	@RequestMapping(value="/test",method=RequestMethod.GET)
+	@ResponseBody
+	public void test() {
+		sampleService.testTransaction();
+	}
 	
 }

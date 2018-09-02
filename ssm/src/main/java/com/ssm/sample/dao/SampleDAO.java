@@ -23,4 +23,22 @@ public class SampleDAO {
 		}
 		return result;
 	}
+	
+	public void insertTest() {
+		String sql="insert into article(article_id) values("+System.currentTimeMillis()+")";
+		jdbcTemplate.update(sql);
+	}
+	
+	public void insertTest1() {
+		String sql="insert into article(article_id) values("+System.currentTimeMillis()+"aa"+")";
+		jdbcTemplate.update(sql);
+	}
+	
+	public void findTest() {
+		String sql="select * from article";
+		List<Map<String,Object>> list=jdbcTemplate.queryForList(sql);
+		for(Map<String,Object> map:list) {
+			System.out.println(map.get("article_id"));
+		}
+	}
 }
