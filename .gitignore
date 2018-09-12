@@ -1,3 +1,5 @@
 ssm/target/
+oauth-client/target/
+oauth-server/target/
 vue/node_modules/
 jiandan/node_modules/
