@@ -1,0 +1,16 @@
+设置全局代理：
+set https_proxy=http://proxy2.xn.petrochina:8080
+set http_proxy=http://proxy2.xn.petrochina:8080
+
+如果设置了这个还是下不下来，那就再设置一下
+npm config set proxy=http://proxy2.xn.petrochina:8080
+npm config set registry=http://registry.npm.taobao.org
+
+你先按我说的把代理设置了，然后再执行一下npm install
+
+
+通过npm install安装全局依赖的时候，出错了，卡在了chromedriver的地方
+解决办法：npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+
+
+执行npm install到最后还是会报错，但是它的依赖是下下来了的，你可以看下。然后再执行npm rebuild node-sass。
