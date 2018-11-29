@@ -8,8 +8,10 @@ import io.renren.common.validator.Assert;
 import io.renren.common.validator.ValidatorUtils;
 import io.renren.common.validator.group.AddGroup;
 import io.renren.common.validator.group.UpdateGroup;
+import io.renren.modules.sys.entity.SysDeptEntity;
 import io.renren.modules.sys.entity.SysUserEntity;
 import io.renren.modules.sys.form.PasswordForm;
+import io.renren.modules.sys.service.SysDeptService;
 import io.renren.modules.sys.service.SysUserRoleService;
 import io.renren.modules.sys.service.SysUserService;
 import org.apache.commons.lang.ArrayUtils;
@@ -35,7 +37,8 @@ public class SysUserController extends AbstractController {
 	private SysUserService sysUserService;
 	@Autowired
 	private SysUserRoleService sysUserRoleService;
-
+    @Autowired
+    private SysDeptService sysDeptService;
 
 	/**
 	 * 所有用户列表
@@ -93,7 +96,10 @@ public class SysUserController extends AbstractController {
 		//获取用户所属的角色列表
 		List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
 		user.setRoleIdList(roleIdList);
-		
+		SysDeptEntity sysDeptEntity = sysDeptService.selectById(user.getDeptId());
+        if(sysDeptEntity != null){
+            user.setDeptName(sysDeptEntity.getName());
+        }
 		return R.ok().put("user", user);
 	}
 	

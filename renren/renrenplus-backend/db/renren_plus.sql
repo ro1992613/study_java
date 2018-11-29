@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2018-11-28 17:00:40
+Date: 2018-11-29 14:49:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -170,7 +170,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RenrenScheduler', 'SC-2018090401121543395277227', '1543395625832', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RenrenScheduler', 'SC-2018090401121543473775741', '1543474155362', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -258,7 +258,7 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('RenrenScheduler', 'TASK_1', 'DEFAULT', 'TASK_1', 'DEFAULT', null, '1543397400000', '1543395600000', '5', 'WAITING', 'CRON', '1543393835000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597372002E696F2E72656E72656E2E6D6F64756C65732E6A6F622E656E746974792E5363686564756C654A6F62456E7469747900000000000000010200084C00086265616E4E616D657400124C6A6176612F6C616E672F537472696E673B4C000A63726561746554696D657400104C6A6176612F7574696C2F446174653B4C000E63726F6E45787072657373696F6E71007E00094C00056A6F6249647400104C6A6176612F6C616E672F4C6F6E673B4C000A6D6574686F644E616D6571007E00094C0006706172616D7371007E00094C000672656D61726B71007E00094C00067374617475737400134C6A6176612F6C616E672F496E74656765723B7870740008746573745461736B7372000E6A6176612E7574696C2E44617465686A81014B5974190300007870770800000158BAF593307874000E3020302F3330202A202A202A203F7372000E6A6176612E6C616E672E4C6F6E673B8BE490CC8F23DF0200014A000576616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B020000787000000000000000017400047465737474000672656E72656E74000FE69C89E58F82E695B0E6B58BE8AF95737200116A6176612E6C616E672E496E746567657212E2A0A4F781873802000149000576616C75657871007E0013000000007800);
+INSERT INTO `qrtz_triggers` VALUES ('RenrenScheduler', 'TASK_1', 'DEFAULT', 'TASK_1', 'DEFAULT', null, '1543474800000', '-1', '5', 'WAITING', 'CRON', '1543393835000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597372002E696F2E72656E72656E2E6D6F64756C65732E6A6F622E656E746974792E5363686564756C654A6F62456E7469747900000000000000010200084C00086265616E4E616D657400124C6A6176612F6C616E672F537472696E673B4C000A63726561746554696D657400104C6A6176612F7574696C2F446174653B4C000E63726F6E45787072657373696F6E71007E00094C00056A6F6249647400104C6A6176612F6C616E672F4C6F6E673B4C000A6D6574686F644E616D6571007E00094C0006706172616D7371007E00094C000672656D61726B71007E00094C00067374617475737400134C6A6176612F6C616E672F496E74656765723B7870740008746573745461736B7372000E6A6176612E7574696C2E44617465686A81014B5974190300007870770800000158BAF593307874000E3020302F3330202A202A202A203F7372000E6A6176612E6C616E672E4C6F6E673B8BE490CC8F23DF0200014A000576616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B020000787000000000000000017400047465737474000672656E72656E74000FE69C89E58F82E695B0E6B58BE8AF95737200116A6176612E6C616E672E496E746567657212E2A0A4F781873802000149000576616C75657871007E0013000000007800);
 INSERT INTO `qrtz_triggers` VALUES ('RenrenScheduler', 'TASK_2', 'DEFAULT', 'TASK_2', 'DEFAULT', null, '1543395600000', '-1', '5', 'PAUSED', 'CRON', '1543393835000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597372002E696F2E72656E72656E2E6D6F64756C65732E6A6F622E656E746974792E5363686564756C654A6F62456E7469747900000000000000010200084C00086265616E4E616D657400124C6A6176612F6C616E672F537472696E673B4C000A63726561746554696D657400104C6A6176612F7574696C2F446174653B4C000E63726F6E45787072657373696F6E71007E00094C00056A6F6249647400104C6A6176612F6C616E672F4C6F6E673B4C000A6D6574686F644E616D6571007E00094C0006706172616D7371007E00094C000672656D61726B71007E00094C00067374617475737400134C6A6176612F6C616E672F496E74656765723B7870740008746573745461736B7372000E6A6176612E7574696C2E44617465686A81014B5974190300007870770800000158C377C4607874000E3020302F3330202A202A202A203F7372000E6A6176612E6C616E672E4C6F6E673B8BE490CC8F23DF0200014A000576616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B0200007870000000000000000274000574657374327074000FE697A0E58F82E695B0E6B58BE8AF95737200116A6176612E6C616E672E496E746567657212E2A0A4F781873802000149000576616C75657871007E0013000000017800);
 
 -- ----------------------------
@@ -299,12 +299,18 @@ CREATE TABLE `schedule_job_log` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`log_id`),
   KEY `job_id` (`job_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='定时任务日志';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='定时任务日志';
 
 -- ----------------------------
 -- Records of schedule_job_log
 -- ----------------------------
 INSERT INTO `schedule_job_log` VALUES ('1', '1', 'testTask', 'test', 'renren', '0', null, '1012', '2018-11-28 17:00:00');
+INSERT INTO `schedule_job_log` VALUES ('2', '1', 'testTask', 'test', 'renren', '0', null, '1009', '2018-11-28 17:30:00');
+INSERT INTO `schedule_job_log` VALUES ('3', '1', 'testTask', 'test', 'renren', '0', null, '1016', '2018-11-28 18:00:00');
+INSERT INTO `schedule_job_log` VALUES ('4', '1', 'testTask', 'test', 'renren', '0', null, '1015', '2018-11-29 10:00:00');
+INSERT INTO `schedule_job_log` VALUES ('5', '1', 'testTask', 'test', 'renren', '0', null, '1026', '2018-11-29 11:00:00');
+INSERT INTO `schedule_job_log` VALUES ('6', '1', 'testTask', 'test', 'renren', '0', null, '1006', '2018-11-29 11:30:00');
+INSERT INTO `schedule_job_log` VALUES ('7', '1', 'testTask', 'test', 'renren', '0', null, '1029', '2018-11-29 13:30:00');
 
 -- ----------------------------
 -- Table structure for sys_captcha
@@ -376,13 +382,22 @@ CREATE TABLE `sys_log` (
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='系统日志';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='系统日志';
 
 -- ----------------------------
 -- Records of sys_log
 -- ----------------------------
 INSERT INTO `sys_log` VALUES ('1', 'admin', '修改菜单', 'io.renren.modules.sys.controller.SysMenuController.update()', '[{\"menuId\":31,\"parentId\":1,\"name\":\"部门管理\",\"url\":\"sys/dept\",\"type\":1,\"icon\":\"zonghe\",\"orderNum\":1}]', '19', '127.0.0.1', '2018-11-28 16:31:42');
 INSERT INTO `sys_log` VALUES ('2', 'admin', '保存角色', 'io.renren.modules.sys.controller.SysRoleController.save()', '[{\"createUserId\":1,\"roleId\":1,\"roleName\":\"系统管理员\",\"remark\":\"系统管理员\",\"deptId\":1,\"deptName\":\"人人开源集团\",\"menuIdList\":[1,2,15,16,17,18,3,19,20,21,22,4,23,24,25,26,5,6,7,8,9,10,11,12,13,14,27,29,30,31,32,33,34,35,-666666],\"deptIdList\":[1,2,3,4,5,-666666],\"createTime\":\"Nov 28, 2018 4:32:25 PM\"}]', '113', '127.0.0.1', '2018-11-28 16:32:25');
+INSERT INTO `sys_log` VALUES ('3', 'admin', '修改用户', 'io.renren.modules.sys.controller.SysUserController.update()', '[{\"userId\":1,\"username\":\"admin\",\"salt\":\"YzcmCZNvbXocrsz9dm8e\",\"email\":\"root@renren.io\",\"mobile\":\"13612345678\",\"status\":1,\"roleIdList\":[1],\"createUserId\":1}]', '125', '127.0.0.1', '2018-11-28 17:01:14');
+INSERT INTO `sys_log` VALUES ('4', 'admin', '保存用户', 'io.renren.modules.sys.controller.SysUserController.save()', '[{\"userId\":2,\"username\":\"root\",\"password\":\"54a8595f6c2d41e705d0f5f8b069cb435371c00600eb5f280e87356011c27de3\",\"salt\":\"EcJK1QbN0ZdnxYWVeR4N\",\"email\":\"ro@qq.com\",\"mobile\":\"13333333333\",\"status\":1,\"roleIdList\":[1],\"createUserId\":1,\"createTime\":\"Nov 29, 2018 9:53:10 AM\"}]', '129', '127.0.0.1', '2018-11-29 09:53:10');
+INSERT INTO `sys_log` VALUES ('5', 'admin', '保存角色', 'io.renren.modules.sys.controller.SysRoleController.save()', '[{\"createUserId\":1,\"roleId\":2,\"roleName\":\"长沙分公司\",\"remark\":\"长沙分公司\",\"deptId\":2,\"deptName\":\"长沙分公司\",\"menuIdList\":[1,2,15,16,17,18,3,19,20,21,22,4,23,24,25,26,5,6,7,8,9,10,11,12,13,14,27,29,30,31,32,33,34,35,-666666],\"deptIdList\":[2,-666666,1],\"createTime\":\"Nov 29, 2018 9:53:56 AM\"}]', '55', '127.0.0.1', '2018-11-29 09:53:56');
+INSERT INTO `sys_log` VALUES ('6', 'admin', '修改用户', 'io.renren.modules.sys.controller.SysUserController.update()', '[{\"userId\":2,\"username\":\"root\",\"salt\":\"EcJK1QbN0ZdnxYWVeR4N\",\"email\":\"ro@qq.com\",\"mobile\":\"13333333333\",\"status\":1,\"roleIdList\":[2],\"createUserId\":1}]', '15', '127.0.0.1', '2018-11-29 09:54:06');
+INSERT INTO `sys_log` VALUES ('7', 'admin', '保存菜单', 'io.renren.modules.sys.controller.SysMenuController.save()', '[{\"menuId\":36,\"parentId\":29,\"name\":\"t1\",\"url\":\"\",\"perms\":\"sys:test:t1\",\"type\":2,\"icon\":\"\",\"orderNum\":0}]', '9', '127.0.0.1', '2018-11-29 09:57:04');
+INSERT INTO `sys_log` VALUES ('8', 'admin', '修改角色', 'io.renren.modules.sys.controller.SysRoleController.update()', '[{\"createUserId\":1,\"roleId\":2,\"roleName\":\"长沙分公司\",\"remark\":\"长沙分公司\",\"deptId\":2,\"deptName\":\"长沙分公司\",\"menuIdList\":[1,2,15,16,17,18,3,19,20,21,22,4,23,24,25,26,5,6,7,8,9,10,11,12,13,14,27,29,36,30,31,32,33,34,35,-666666],\"deptIdList\":[2,-666666,1]}]', '37', '127.0.0.1', '2018-11-29 09:57:49');
+INSERT INTO `sys_log` VALUES ('9', 'admin', '修改用户', 'io.renren.modules.sys.controller.SysUserController.update()', '[{\"userId\":1,\"username\":\"admin\",\"salt\":\"YzcmCZNvbXocrsz9dm8e\",\"email\":\"root@renren.io\",\"mobile\":\"13612345678\",\"status\":1,\"roleIdList\":[1],\"createUserId\":1,\"deptId\":1}]', '153', '127.0.0.1', '2018-11-29 14:38:34');
+INSERT INTO `sys_log` VALUES ('10', 'admin', '修改用户', 'io.renren.modules.sys.controller.SysUserController.update()', '[{\"userId\":2,\"username\":\"root\",\"salt\":\"EcJK1QbN0ZdnxYWVeR4N\",\"email\":\"ro@qq.com\",\"mobile\":\"13333333333\",\"status\":1,\"roleIdList\":[2],\"createUserId\":1,\"deptId\":4}]', '181', '127.0.0.1', '2018-11-29 14:43:14');
+INSERT INTO `sys_log` VALUES ('11', 'admin', '删除菜单', 'io.renren.modules.sys.controller.SysMenuController.delete()', '[36]', '15', '127.0.0.1', '2018-11-29 14:45:33');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -398,7 +413,7 @@ CREATE TABLE `sys_menu` (
   `icon` varchar(50) DEFAULT NULL COMMENT '菜单图标',
   `order_num` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -465,12 +480,13 @@ CREATE TABLE `sys_role` (
   `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建者ID',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='角色';
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES ('1', '系统管理员', '系统管理员', '1', '1', '2018-11-28 16:32:25');
+INSERT INTO `sys_role` VALUES ('2', '长沙分公司', '长沙分公司', '2', '1', '2018-11-29 09:53:56');
 
 -- ----------------------------
 -- Table structure for sys_role_dept
@@ -481,7 +497,7 @@ CREATE TABLE `sys_role_dept` (
   `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='角色与部门对应关系';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='角色与部门对应关系';
 
 -- ----------------------------
 -- Records of sys_role_dept
@@ -492,6 +508,9 @@ INSERT INTO `sys_role_dept` VALUES ('3', '1', '3');
 INSERT INTO `sys_role_dept` VALUES ('4', '1', '4');
 INSERT INTO `sys_role_dept` VALUES ('5', '1', '5');
 INSERT INTO `sys_role_dept` VALUES ('6', '1', '-666666');
+INSERT INTO `sys_role_dept` VALUES ('10', '2', '2');
+INSERT INTO `sys_role_dept` VALUES ('11', '2', '-666666');
+INSERT INTO `sys_role_dept` VALUES ('12', '2', '1');
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -502,7 +521,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   `menu_id` bigint(20) DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -542,6 +561,41 @@ INSERT INTO `sys_role_menu` VALUES ('32', '1', '33');
 INSERT INTO `sys_role_menu` VALUES ('33', '1', '34');
 INSERT INTO `sys_role_menu` VALUES ('34', '1', '35');
 INSERT INTO `sys_role_menu` VALUES ('35', '1', '-666666');
+INSERT INTO `sys_role_menu` VALUES ('71', '2', '1');
+INSERT INTO `sys_role_menu` VALUES ('72', '2', '2');
+INSERT INTO `sys_role_menu` VALUES ('73', '2', '15');
+INSERT INTO `sys_role_menu` VALUES ('74', '2', '16');
+INSERT INTO `sys_role_menu` VALUES ('75', '2', '17');
+INSERT INTO `sys_role_menu` VALUES ('76', '2', '18');
+INSERT INTO `sys_role_menu` VALUES ('77', '2', '3');
+INSERT INTO `sys_role_menu` VALUES ('78', '2', '19');
+INSERT INTO `sys_role_menu` VALUES ('79', '2', '20');
+INSERT INTO `sys_role_menu` VALUES ('80', '2', '21');
+INSERT INTO `sys_role_menu` VALUES ('81', '2', '22');
+INSERT INTO `sys_role_menu` VALUES ('82', '2', '4');
+INSERT INTO `sys_role_menu` VALUES ('83', '2', '23');
+INSERT INTO `sys_role_menu` VALUES ('84', '2', '24');
+INSERT INTO `sys_role_menu` VALUES ('85', '2', '25');
+INSERT INTO `sys_role_menu` VALUES ('86', '2', '26');
+INSERT INTO `sys_role_menu` VALUES ('87', '2', '5');
+INSERT INTO `sys_role_menu` VALUES ('88', '2', '6');
+INSERT INTO `sys_role_menu` VALUES ('89', '2', '7');
+INSERT INTO `sys_role_menu` VALUES ('90', '2', '8');
+INSERT INTO `sys_role_menu` VALUES ('91', '2', '9');
+INSERT INTO `sys_role_menu` VALUES ('92', '2', '10');
+INSERT INTO `sys_role_menu` VALUES ('93', '2', '11');
+INSERT INTO `sys_role_menu` VALUES ('94', '2', '12');
+INSERT INTO `sys_role_menu` VALUES ('95', '2', '13');
+INSERT INTO `sys_role_menu` VALUES ('96', '2', '14');
+INSERT INTO `sys_role_menu` VALUES ('97', '2', '27');
+INSERT INTO `sys_role_menu` VALUES ('98', '2', '29');
+INSERT INTO `sys_role_menu` VALUES ('100', '2', '30');
+INSERT INTO `sys_role_menu` VALUES ('101', '2', '31');
+INSERT INTO `sys_role_menu` VALUES ('102', '2', '32');
+INSERT INTO `sys_role_menu` VALUES ('103', '2', '33');
+INSERT INTO `sys_role_menu` VALUES ('104', '2', '34');
+INSERT INTO `sys_role_menu` VALUES ('105', '2', '35');
+INSERT INTO `sys_role_menu` VALUES ('106', '2', '-666666');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -555,16 +609,18 @@ CREATE TABLE `sys_user` (
   `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
   `mobile` varchar(100) DEFAULT NULL COMMENT '手机号',
   `status` tinyint(4) DEFAULT NULL COMMENT '状态  0：禁用   1：正常',
+  `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
   `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建者ID',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统用户';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='系统用户';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'root@renren.io', '13612345678', '1', '1', '2016-11-11 11:11:11');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'root@renren.io', '13612345678', '1', '1', '1', '2016-11-11 11:11:11');
+INSERT INTO `sys_user` VALUES ('2', 'root', '54a8595f6c2d41e705d0f5f8b069cb435371c00600eb5f280e87356011c27de3', 'EcJK1QbN0ZdnxYWVeR4N', 'ro@qq.com', '13333333333', '1', '4', '1', '2018-11-29 09:53:10');
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -575,11 +631,13 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户ID',
   `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户与角色对应关系';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户与角色对应关系';
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+INSERT INTO `sys_user_role` VALUES ('4', '1', '1');
+INSERT INTO `sys_user_role` VALUES ('5', '2', '2');
 
 -- ----------------------------
 -- Table structure for sys_user_token
@@ -597,7 +655,8 @@ CREATE TABLE `sys_user_token` (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES ('1', 'e18b152b26e24c6ba60f89bc1b3d6958', '2018-11-29 04:31:05', '2018-11-28 16:31:05');
+INSERT INTO `sys_user_token` VALUES ('1', '58091bf030f6aaacca8abe9cad44a100', '2018-11-30 02:35:03', '2018-11-29 14:35:03');
+INSERT INTO `sys_user_token` VALUES ('2', '7107e1a8ee33d896a84935bce8c4f8bf', '2018-11-29 22:27:58', '2018-11-29 10:27:58');
 
 -- ----------------------------
 -- Table structure for tb_user
