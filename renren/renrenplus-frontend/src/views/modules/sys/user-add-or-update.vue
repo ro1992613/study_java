@@ -7,6 +7,24 @@
       <el-form-item label="用户名" prop="userName">
         <el-input v-model="dataForm.userName" placeholder="登录帐号"></el-input>
       </el-form-item>
+      <el-form-item label="上级部门" prop="parentName">
+        <el-popover
+          ref="menuListPopover"
+          placement="bottom-start"
+          trigger="click">
+          <el-tree
+            :data="menuList"
+            :props="menuListTreeProps"
+            node-key="deptId"
+            ref="menuListTree"
+            @current-change="menuListTreeCurrentChangeHandle"
+            :default-expand-all="true"
+            :highlight-current="true"
+            :expand-on-click-node="false">
+          </el-tree>
+        </el-popover>
+        <el-input v-model="dataForm.deptName" v-popover:menuListPopover :readonly="true" placeholder="点击选择上级部门" class="menu-list__input"></el-input>
+      </el-form-item>
       <el-form-item label="密码" prop="password" :class="{ 'is-required': !dataForm.id }">
         <el-input v-model="dataForm.password" type="password" placeholder="密码"></el-input>
       </el-form-item>
@@ -40,6 +58,7 @@
 
 <script>
   import { isEmail, isMobile } from '@/utils/validate'
+  import { treeDataTranslate } from '@/utils'
   export default {
     data () {
       var validatePassword = (rule, value, callback) => {
@@ -75,10 +94,17 @@
       return {
         visible: false,
         roleList: [],
+        menuList: [],
+        menuListTreeProps: {
+          label: 'name',
+          children: 'children'
+        },
         dataForm: {
           id: 0,
           userName: '',
           password: '',
+          deptId:'',
+          deptName:'',
           comfirmPassword: '',
           salt: '',
           email: '',
@@ -109,36 +135,47 @@
     },
     methods: {
       init (id) {
-        this.dataForm.id = id || 0
         this.$http({
-          url: this.$http.adornUrl('/sys/role/select'),
-          method: 'get',
-          params: this.$http.adornParams()
-        }).then(({data}) => {
-          this.roleList = data && data.code === 0 ? data.list : []
-        }).then(() => {
-          this.visible = true
-          this.$nextTick(() => {
-            this.$refs['dataForm'].resetFields()
-          })
-        }).then(() => {
-          if (this.dataForm.id) {
-            this.$http({
-              url: this.$http.adornUrl(`/sys/user/info/${this.dataForm.id}`),
+              url: this.$http.adornUrl('/sys/dept/list'),
               method: 'get',
               params: this.$http.adornParams()
-            }).then(({data}) => {
-              if (data && data.code === 0) {
-                this.dataForm.userName = data.user.username
-                this.dataForm.salt = data.user.salt
-                this.dataForm.email = data.user.email
-                this.dataForm.mobile = data.user.mobile
-                this.dataForm.roleIdList = data.user.roleIdList
-                this.dataForm.status = data.user.status
-              }
+            }).then(({data})=>{
+              this.menuList = treeDataTranslate(data, 'deptId');
+            }).then(()=>{
+              this.dataForm.id = id || 0
+              this.$http({
+                url: this.$http.adornUrl('/sys/role/select'),
+                method: 'get',
+                params: this.$http.adornParams()
+              }).then(({data}) => {
+                this.roleList = data && data.code === 0 ? data.list : []
+              }).then(() => {
+                this.visible = true
+                this.$nextTick(() => {
+                  this.$refs['dataForm'].resetFields()
+                })
+              }).then(() => {
+                if (this.dataForm.id) {
+                  this.$http({
+                    url: this.$http.adornUrl(`/sys/user/info/${this.dataForm.id}`),
+                    method: 'get',
+                    params: this.$http.adornParams()
+                  }).then(({data}) => {
+                    if (data && data.code === 0) {
+                      this.dataForm.userName = data.user.username
+                      this.dataForm.salt = data.user.salt
+                      this.dataForm.deptId = data.user.deptId
+                      this.dataForm.deptName = data.user.deptName
+                      this.dataForm.email = data.user.email
+                      this.dataForm.mobile = data.user.mobile
+                      this.dataForm.roleIdList = data.user.roleIdList
+                      this.dataForm.status = data.user.status
+                    }
+                  })
+                }
+              })
             })
-          }
-        })
+        
       },
       // 表单提交
       dataFormSubmit () {
@@ -155,6 +192,7 @@
                 'email': this.dataForm.email,
                 'mobile': this.dataForm.mobile,
                 'status': this.dataForm.status,
+                'deptId': this.dataForm.deptId,
                 'roleIdList': this.dataForm.roleIdList
               })
             }).then(({data}) => {
@@ -174,7 +212,17 @@
             })
           }
         })
-      }
+      },
+      // 菜单树选中
+      menuListTreeCurrentChangeHandle (data, node) {
+        this.dataForm.deptId = data.deptId
+        this.dataForm.deptName = data.name
+      },
+      // 菜单树设置当前选中节点
+      menuListTreeSetCurrentNode () {
+        this.$refs.menuListTree.setCurrentKey(this.dataForm.deptId)
+        this.dataForm.parentName = (this.$refs.menuListTree.getCurrentNode() || {})['name']
+      },
     }
   }
 </script>
