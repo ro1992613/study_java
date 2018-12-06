@@ -110,7 +110,10 @@ public class SysDeptController extends AbstractController {
 	@RequiresPermissions("sys:dept:info")
 	public R info(@PathVariable("deptId") Long deptId){
 		SysDeptEntity dept = sysDeptService.selectById(deptId);
-		
+		SysDeptEntity sysDeptEntity = sysDeptService.selectById(dept.getParentId());
+        if(sysDeptEntity != null){
+            dept.setParentName(sysDeptEntity.getName());
+        }
 		return R.ok().put("dept", dept);
 	}
 	
