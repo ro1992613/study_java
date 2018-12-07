@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.renren.modules.cms.dao.CmsArticleDAO">
+  <resultMap id="BaseResultMap" type="io.renren.modules.cms.entity.CmsArticleEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="channel_id" jdbcType="BIGINT" property="channelId" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="publish_date" jdbcType="TIMESTAMP" property="publishDate" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="author_id" jdbcType="BIGINT" property="authorId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="views_count" jdbcType="INTEGER" property="viewsCount" />
+    <result column="comments_count" jdbcType="INTEGER" property="commentsCount" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="feature" jdbcType="VARCHAR" property="feature" />
+  </resultMap>
+  
+ </mapper>
