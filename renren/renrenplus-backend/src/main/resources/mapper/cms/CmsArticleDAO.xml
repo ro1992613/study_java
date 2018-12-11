@@ -14,6 +14,18 @@
     <result column="comments_count" jdbcType="INTEGER" property="commentsCount" />
     <result column="keywords" jdbcType="VARCHAR" property="keywords" />
     <result column="feature" jdbcType="VARCHAR" property="feature" />
+    <result column="channel_name" jdbcType="VARCHAR" property="channelName" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="username" jdbcType="VARCHAR" property="authorName" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
   </resultMap>
   
+  <select id="listCmsArticle" resultMap="BaseResultMap" parameterType="java.util.Map">
+  	select t0.*,t1.channel_name,t2.type_name,t3.username
+  	from cms_article t0 left join cms_channel t1 on t0.channel_id=t1.id 
+  	left join cms_type t2 on t0.type_id=t2.id 
+  	left join sys_user t3 on t0.author_id=t3.user_id 
+  	where 1=1 
+  	limit #{offset},#{limit}
+  </select>
  </mapper>

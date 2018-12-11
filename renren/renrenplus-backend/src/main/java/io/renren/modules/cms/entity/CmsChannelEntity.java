@@ -2,11 +2,16 @@ package io.renren.modules.cms.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 /**
  * cms_channel
  * @author 
  */
+@TableName("cms_channel")
 public class CmsChannelEntity implements Serializable {
+    @TableId
     private Long id;
 
     private Integer sort;

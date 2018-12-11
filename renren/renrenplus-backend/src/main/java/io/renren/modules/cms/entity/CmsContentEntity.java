@@ -2,14 +2,19 @@ package io.renren.modules.cms.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 /**
  * cms_content
  * @author 
  */
+@TableName("cms_content")
 public class CmsContentEntity implements Serializable {
     /**
      * 文章id
      */
+    @TableId
     private Long id;
 
     /**

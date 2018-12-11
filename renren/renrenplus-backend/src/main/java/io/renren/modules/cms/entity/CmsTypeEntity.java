@@ -2,11 +2,16 @@ package io.renren.modules.cms.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 /**
  * cms_type
  * @author 
  */
+@TableName("cms_type")
 public class CmsTypeEntity implements Serializable {
+    @TableId
     private Long id;
 
     private String typeName;

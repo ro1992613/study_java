@@ -3,25 +3,35 @@ package io.renren.modules.cms.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 /**
  * cms_article
  * @author 
  */
+@TableName("cms_article")
 public class CmsArticleEntity implements Serializable {
     /**
      * 文章id
      */
+    @TableId
     private Long id;
 
     /**
      * 栏目id
      */
     private Long channelId;
+    @TableField(exist=false)
+    private String channelName;
 
     /**
      * 类型id
      */
     private Long typeId;
+    @TableField(exist=false)
+    private String typeName;
 
     /**
      * 标题
@@ -42,6 +52,8 @@ public class CmsArticleEntity implements Serializable {
      * 作者id
      */
     private Long authorId;
+    @TableField(exist=false)
+    private String authorName;
 
     /**
      * 状态(0:草稿;1:审核中;2:发布;3:回收站;-1:删除)
@@ -67,6 +79,16 @@ public class CmsArticleEntity implements Serializable {
      * 特征（保留）
      */
     private String feature;
+    @TableField(exist=false)
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -164,6 +186,31 @@ public class CmsArticleEntity implements Serializable {
 
     public void setFeature(String feature) {
         this.feature = feature;
+    }
+
+    
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     @Override
