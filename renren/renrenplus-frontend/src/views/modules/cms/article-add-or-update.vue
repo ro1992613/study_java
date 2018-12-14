@@ -72,6 +72,7 @@
 
 <script>
 import E from "wangeditor";
+var editor;
 export default {
   data() {
     return {
@@ -86,7 +87,8 @@ export default {
         summary: "",
         status: "",
         keywords: "",
-        feature: ""
+        feature: "",
+        content:''
       },
       typeList: [],
       channelList: [],
@@ -130,16 +132,27 @@ export default {
                     })
                   }).then(({ data }) => {
                     if (data && data.code === 0) {
-                      this.dataForm.channelId = data.data.channelId;
-                      this.dataForm.typeId = data.data.typeId;
-                      this.dataForm.title = data.data.title;
-                      this.dataForm.summary = data.data.summary;
-                      this.dataForm.status = data.data.status;
-                      this.dataForm.keywords = data.data.keywords;
-                      this.dataForm.feature = data.data.feature;
-                      this.dataForm.content = data.data.content;
+                      this.dataForm.channelId = data.data.channelId==null ? '' :data.data.channelId;
+                      this.dataForm.typeId = data.data.typeId==null ? '' :data.data.typeId;
+                      this.dataForm.title = data.data.title==null ? '' :data.data.title;
+                      this.dataForm.summary = data.data.summary==null ? '' :data.data.summary;
+                      this.dataForm.status = data.data.status==null ? '' :data.data.status;
+                      this.dataForm.keywords = data.data.keywords==null ? '' :data.data.keywords;
+                      this.dataForm.feature = data.data.feature==null ? '' :data.data.feature;
+                      this.dataForm.content = data.data.content==null ? '' :data.data.content;
+                      editor.txt.html(this.dataForm.content);
                     }
                   });
+                } else {
+                  this.dataForm.channelId = "";
+                  this.dataForm.typeId = "";
+                  this.dataForm.title = "";
+                  this.dataForm.summary ="";
+                  this.dataForm.status ="";
+                  this.dataForm.keywords = "";
+                  this.dataForm.feature ="";
+                  this.dataForm.content ="";
+                  editor.txt.html("");
                 }
               });
           });
@@ -186,14 +199,17 @@ export default {
     tabClick() {
       if (!this.isEditTabInited) {
         this.isEditTabInited = true;
-        var editor = new E("#editorElem");
-        editor.customConfig.uploadImgShowBase64 = true;
-        editor.customConfig.onchange = html => {
-          this.dataForm.content = html;
-        };
-        editor.create();
-        editor.txt.html(this.dataForm.content);
+        this.initWangEditor();
       }
+      editor.txt.html(this.dataForm.content);
+    },
+    initWangEditor() {
+      editor = new E("#editorElem");
+      editor.customConfig.uploadImgShowBase64 = true;
+      editor.customConfig.onchange = html => {
+        this.dataForm.content = html;
+      };
+      editor.create();
     }
   }
 };

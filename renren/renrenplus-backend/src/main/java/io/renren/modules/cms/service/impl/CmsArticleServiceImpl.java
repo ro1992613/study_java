@@ -1,6 +1,10 @@
 package io.renren.modules.cms.service.impl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,17 +20,15 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.Query;
 import io.renren.common.utils.R;
+import io.renren.common.utils.ShiroUtils;
 import io.renren.modules.cms.dao.CmsArticleDAO;
 import io.renren.modules.cms.dao.CmsChannelDAO;
 import io.renren.modules.cms.dao.CmsContentDAO;
 import io.renren.modules.cms.dao.CmsTypeDAO;
 import io.renren.modules.cms.entity.CmsArticleEntity;
-import io.renren.modules.cms.entity.CmsChannelEntity;
 import io.renren.modules.cms.entity.CmsContentEntity;
-import io.renren.modules.cms.entity.CmsTypeEntity;
 import io.renren.modules.cms.service.CmsArticleService;
 import io.renren.modules.sys.dao.SysUserDao;
-import io.renren.modules.sys.entity.SysUserEntity;
 @Service
 public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleDAO, CmsArticleEntity> implements CmsArticleService{
 
@@ -44,16 +46,18 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleDAO, CmsArticle
     
     @Override
     public R insertCmsArticle(CmsArticleEntity entity) {
+        entity.setAuthorId(ShiroUtils.getUserId());
+        entity.setPublishDate(new Date());
         R r=R.error();
-        if(this.insert(entity)) {
+        if(baseMapper.insertArticle(entity)>0) {
             CmsContentEntity contentEntity=new CmsContentEntity();
             contentEntity.setContent(entity.getContent());
-            entity.setId(entity.getId());
+            contentEntity.setArticleId(entity.getId());
             int code=0;
             try {
                 code=cmsContentDAO.insert(contentEntity);
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
             try {
                 if(code<=0) {
@@ -72,9 +76,18 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleDAO, CmsArticle
         if(this.updateById(entity)) {
             CmsContentEntity contentEntity=new CmsContentEntity();
             contentEntity.setContent(entity.getContent());
-            entity.setId(entity.getId());
+            contentEntity.setArticleId(entity.getId());
+            int code=0;
             try {
-                cmsContentDAO.updateById(contentEntity);
+                code=cmsContentDAO.updateById(contentEntity);
+                System.out.println(code);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if(code<=0) {
+                    cmsContentDAO.insert(contentEntity);
+                }
             } catch (Exception e) {
             }
             r=R.ok();
@@ -118,7 +131,13 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleDAO, CmsArticle
         R r=R.error();
         try {
             CmsArticleEntity rs=this.selectById(entity.getId());
-            rs.setContent(cmsContentDAO.selectById(rs.getId()).getContent());
+            try {
+                CmsContentEntity queryEtity=new CmsContentEntity();
+                queryEtity.setArticleId(entity.getId());
+                rs.setContent(cmsContentDAO.selectOne(queryEtity).getContent());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             r=R.ok().put("data", rs);
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,11 +147,14 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleDAO, CmsArticle
 
     @Override
     public R deleteCmsArticle(Long[] ids) {
-        List<Long> list=new ArrayList<>();
-        for(Long id:ids) {
-            list.add(id);
+        R r=R.error();
+        try {
+            this.deleteBatchIds(Arrays.asList(ids));
+            cmsContentDAO.deleteBatchIds(Arrays.asList(ids));
+            r=R.ok();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.deleteBatchIds(list);
-        return R.ok();
+        return r;
     }
 }

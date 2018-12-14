@@ -26,6 +26,27 @@
   	left join cms_type t2 on t0.type_id=t2.id 
   	left join sys_user t3 on t0.author_id=t3.user_id 
   	where 1=1 
+  	<if test="search != null and search != ''">
+  		<bind name="search_like" value="'%' + search + '%'" />
+  		and t0.title like #{search_like} 
+  		and t0.summary like #{search_like} 
+  		and t0.keywords like #{search_like} 
+  		and t1.channel_name like #{search_like} 
+  		and t2.type_name like #{search_like} 
+  		and t3.username like #{search_like} 
+  	</if>
+  	order by t0.publish_date desc 
   	limit #{offset},#{limit}
   </select>
+  
+    <insert id="insertArticle" keyColumn="id" keyProperty="id" parameterType="io.renren.modules.cms.entity.CmsArticleEntity" useGeneratedKeys="true">
+    insert into cms_article (channel_id, type_id, title, 
+      publish_date, summary, author_id, 
+      `status`, views_count, comments_count, 
+      keywords, feature)
+    values (#{channelId,jdbcType=BIGINT}, #{typeId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, 
+      #{publishDate,jdbcType=TIMESTAMP}, #{summary,jdbcType=VARCHAR}, #{authorId,jdbcType=BIGINT}, 
+      #{status,jdbcType=INTEGER}, #{viewsCount,jdbcType=INTEGER}, #{commentsCount,jdbcType=INTEGER}, 
+      #{keywords,jdbcType=VARCHAR}, #{feature,jdbcType=VARCHAR})
+  </insert>
  </mapper>

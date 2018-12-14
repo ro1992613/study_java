@@ -63,12 +63,12 @@ public class CmsArticleEntity implements Serializable {
     /**
      * 访问数
      */
-    private Integer viewsCount;
+    private Integer viewsCount=0;
 
     /**
      * 评论数
      */
-    private Integer commentsCount;
+    private Integer commentsCount=0;
 
     /**
      * 关键词，用逗号隔开

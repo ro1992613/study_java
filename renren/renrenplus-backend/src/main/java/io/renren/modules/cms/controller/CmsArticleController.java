@@ -46,7 +46,7 @@ public class CmsArticleController {
     
     @PostMapping("/delete")
     //@RequiresPermissions("cms:article:delete")
-    public R deleteCmsArticle(@RequestBody Long[] id) {
-        return cmsArticleService.deleteCmsArticle(id);
+    public R deleteCmsArticle(@RequestBody Long[] ids) {
+        return cmsArticleService.deleteCmsArticle(ids);
     }
 }

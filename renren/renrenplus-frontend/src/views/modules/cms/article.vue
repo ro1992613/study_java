@@ -1,6 +1,15 @@
 <template>
   <div>
-
+    <el-form :inline="true" @keyup.enter.native="getDataList()">
+      <el-form-item>
+        <el-input v-model="searchWords" placeholder="搜索" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="getDataList()">查询</el-button>
+        <el-button type="primary" @click="addOrUpdateArticle()">新增</el-button>
+        <el-button type="danger" @click="deleteArticle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+      </el-form-item>
+    </el-form>
     <el-table
       :data="dataList"
       border
@@ -92,6 +101,7 @@ import AddOrUpdate from './article-add-or-update'
   export default {
     data () {
       return {
+        searchWords:'',
         dataList: [],
         pageIndex: 1,
         pageSize: 10,
@@ -115,6 +125,7 @@ import AddOrUpdate from './article-add-or-update'
           url: this.$http.adornUrl('/cms/article/list'),
           method: 'post',
           data: this.$http.adornData({
+            'search':this.searchWords,
             'page': this.pageIndex,
             'limit': this.pageSize
           })
@@ -147,6 +158,33 @@ import AddOrUpdate from './article-add-or-update'
 
       // 删除
       deleteArticle (id) {
+        var ids = id ? [id] : this.dataListSelections.map(item => {
+          return item.id
+        })
+        this.$confirm(`确定对[id=${ids.join(',')}]进行[${id ? '删除' : '批量删除'}]操作?`, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$http({
+            url: this.$http.adornUrl('/cms/article/delete'),
+            method: 'post',
+            data: this.$http.adornData(ids, false)
+          }).then(({data}) => {
+            if (data && data.code === 0) {
+              this.$message({
+                message: '操作成功',
+                type: 'success',
+                duration: 1500,
+                onClose: () => {
+                  this.getDataList()
+                }
+              })
+            } else {
+              this.$message.error(data.msg)
+            }
+          })
+        }).catch(() => {})
       },
       //
       addOrUpdateArticle(id){

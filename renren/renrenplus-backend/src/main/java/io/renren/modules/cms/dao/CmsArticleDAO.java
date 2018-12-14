@@ -13,4 +13,5 @@ public interface CmsArticleDAO extends BaseMapper<CmsArticleEntity>{
 
     List<CmsArticleEntity> listCmsArticle(Map<String, Object> params);
 
+    int insertArticle(CmsArticleEntity cmsArticleEntity);
 }

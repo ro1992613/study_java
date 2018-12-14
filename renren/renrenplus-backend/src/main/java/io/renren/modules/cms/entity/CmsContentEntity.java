@@ -21,8 +21,19 @@ public class CmsContentEntity implements Serializable {
      * 文章内容
      */
     private String content;
+    
+    private Long articleId;
 
     private static final long serialVersionUID = 1L;
+
+    
+    public Long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Long articleId) {
+        this.articleId = articleId;
+    }
 
     public Long getId() {
         return id;
