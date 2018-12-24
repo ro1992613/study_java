@@ -1,28 +1,49 @@
 package com.java.test2;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class test {
 
-    protected void methoda() {
-        System.out.println("protected");
-    }
+    public static void main(String[] args){
+        Integer var1=new Integer(1);
+        Integer var2=var1;
+        doSomething(var2);
+        System.out.print(var1.intValue());
+        System.out.print(var1==var2);
+        System.out.println();
+
+        Thread t=new Thread(()->{System.out.println("1");});
+        t.start();
+        List<String> list=new ArrayList<>();
+        list.add("1");
+        list.forEach((s)->{System.out.println(s);});
+        Integer s=0;
+
+        
+try {
     
-    public static void main(String[] args) {
-        int twCount5To10=1;
-        int lwCount5To10=0;
-        try {
-            int count5To10Change = (int) (((float) (twCount5To10 - lwCount5To10) )/ lwCount5To10 * 100);
-           System.out.println(count5To10Change);
-           float s1=0;
-           float s2=1; 
-           int s3=0;
-           int s=(int) (s2/s3*100);
-           System.out.println(s);
-           BigDecimal twAvgSystemPrice=new BigDecimal("0");
-           System.out.println(twAvgSystemPrice.intValue()==0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+} catch (Exception e) {
+    // TODO: handle exception
 }
+        LamdaOperation la= (int a, int b) -> {return a;};
+        
+        InvocationHandler myproxy=(Object ob, Method method, Object[] params)->{return method.invoke(ob, args);};
+        
+     }
+     public static void doSomething(Integer integer){
+         integer=new Integer(2);
+         }
+     
+     public void say() {
+         System.out.println("say");
+     }
+     
+     interface LamdaOperation{
+         int getA(int a,int b);
+     }
+}
+
